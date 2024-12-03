@@ -1,21 +1,33 @@
 import { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
+import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+// const inter = localFont({
+//   src: "./fonts/InterVF.ttf",
+//   variable: "--font-inter",
+//   weight: "100 200 300 400 500 600 700 800 900",
+// });
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const spaceGrotesk = SpaceGrotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "DevFlow",
-  description: "A better version of Stack Overflow.",
+  description:
+    "A community-driven platform for asking and answering programming questions. Get help, shared knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more.",
+  icons: {
+    icon: "/images/site-logo.svg",
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
       >
         {children}
       </body>
